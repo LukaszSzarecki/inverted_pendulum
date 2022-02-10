@@ -1,5 +1,6 @@
 from gui import Ui_MainWindow
 from PyQt5 import QtWidgets
+from PyQt5.QtWidgets import QMessageBox
 from runge_kutta import *
 import numpy as np
 
@@ -27,25 +28,32 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
         self.gui.zero_choice.toggled.connect(self.zero_selected)
 
     def take_user_inputs(self):
-        if (self.gui.length_value.text() == ''):
-            self.length = 1
-        else:
+        flag = False
+        if self.gui.length_value.text().isnumeric():
             self.length = float(self.gui.length_value.text())
-
-        if (self.gui.mass_value.text() == ''):
-            self.mass = 1
         else:
+            self.length = 1
+            flag = True
+
+        if self.gui.mass_value.text().isnumeric():
             self.mass = float(self.gui.mass_value.text())
-
-        if (self.gui.friction_value.text() == ''):
-            self.friction = 0
         else:
+            self.mass = 1
+            flag = True
+
+        if self.gui.friction_value.text().isnumeric():
             self.friction = float(self.gui.friction_value.text())
-
-        if (self.gui.angle_value.text() == ''):
-            self.initial_angle = 1
         else:
+            self.friction = 0
+            flag = True
+
+        if self.gui.angle_value.text().isnumeric():
             self.initial_angle = float(self.gui.angle_value.text())
+        else:
+            self.initial_angle = 1
+            flag = True
+
+        if (flag): QMessageBox.warning(self, "Warning", "Your inputs are incorrect \nYou will see default values graphs ", QMessageBox.Ok)
 
     def sin_selected(self, selected):
         if selected:
