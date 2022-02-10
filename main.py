@@ -1,4 +1,3 @@
-# TODO dodaj animacje poruszającego się wahadła do GUI
 
 
 from PyQt5 import QtWidgets

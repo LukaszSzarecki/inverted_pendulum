@@ -2,6 +2,7 @@ from gui import Ui_MainWindow
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QMessageBox
 from runge_kutta import *
+from animation import *
 import numpy as np
 
 
@@ -28,6 +29,12 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
         self.gui.zero_choice.toggled.connect(self.zero_selected)
 
     def take_user_inputs(self):
+        def isfloat(num):
+            try:
+                float(num)
+                return True
+            except ValueError:
+                return False
         flag = False
         if self.gui.length_value.text().isnumeric():
             self.length = float(self.gui.length_value.text())
@@ -41,7 +48,7 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
             self.mass = 1
             flag = True
 
-        if self.gui.friction_value.text().isnumeric():
+        if isfloat(self.gui.friction_value.text()):
             self.friction = float(self.gui.friction_value.text())
         else:
             self.friction = 0
@@ -70,12 +77,6 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
     def zero_selected(self, selected):
         if selected:
             self.which_input_signal = 'zero'
-
-    # def checked_inputs(self):
-    #     if (self.friction == 0): self.friction = 0
-    #     if (self.length == 0): self.length = 1
-    #     if (self.mass == 0): self.mass = 1
-    #     if (self.initial_angle == 0): self.initial_angle = 1
 
     def prepare_data(self):
         self.take_user_inputs()
@@ -110,3 +111,5 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
         self.gui.graph_velocity.canvas.axes.clear()
         self.gui.graph_velocity.canvas.axes.plot(self.ts, self.x1)
         self.gui.graph_velocity.canvas.draw()
+
+        animate(self.x0)
