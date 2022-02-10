@@ -11,7 +11,7 @@ freq_rect = 5  # [Hz]
 freq_trian = 5  # [Hz]
 
 
-def input_signal(t, which_sig):
+def input_signal(t, which_sig=''):
     if which_sig == 'sin':
         return 0.3 * np.sin(2 * np.pi * t * (freq_sin / tmax))
     elif which_sig == 'triangle':
@@ -21,7 +21,7 @@ def input_signal(t, which_sig):
     elif which_sig == 'zero':
         return 0 * t
     else:
-        return 1 * t
+        return 0 * t
 
 
 # equations of state variables
@@ -65,6 +65,6 @@ def calculate_state_variables(x_0, ktory_sygnal, params):
 
     values = {
         'time': ts,
-        'state_var': xs
+        'state_var': xs.transpose()
     }
     return values

@@ -11,17 +11,16 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
         self.gui.setupUi(self)
 
         # User inputs
-        self.length = 0
-        self.mass = 0
+        self.length = 1
+        self.mass = 1
         self.friction = 0
-        self.initial_angle = 0
+        self.initial_angle = 1
         self.which_input_signal = ''
 
         # Plot clicked --button
-        self.gui.plot.clicked.connect(self.plot_input)
-        self.gui.plot.clicked.connect(self.plot_angle)
-        self.gui.plot.clicked.connect(self.plot_velocity)
+        self.gui.plot.clicked.connect(self.plot_all)
         # Signal choice --radio buttons
+
         self.gui.sin_choice.toggled.connect(self.sin_selected)
         self.gui.rectungle_choice.toggled.connect(self.rectangle_selected)
         self.gui.triangle_choice.toggled.connect(self.triangle_selected)
@@ -58,26 +57,27 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
             'length': self.length,
             'mass': self.mass
         }
-        self.data = calculate_state_variables(self.x_0, self.which_input_signal, self.parameters)
-        [self.x0, self.x1] = self.data['state_var'].transpose()
-        self.ts = self.data['time']
+        data = calculate_state_variables(self.x_0, self.which_input_signal, self.parameters)
+        self.split_data(**data)
 
+    def split_data(self, time, state_var):
+        [self.x0, self.x1] = state_var
+        self.ts = time
         self.u = input_signal(self.ts, self.which_input_signal)
 
     # Graphs plotting
-    def plot_input(self):
+
+    def plot_all(self):
         self.prepare_data()
+        # Input plot
         self.gui.graph_input.canvas.axes.clear()
         self.gui.graph_input.canvas.axes.plot(self.ts, self.u)
         self.gui.graph_input.canvas.draw()
-
-    def plot_angle(self):
-        self.prepare_data()
+        # Angle plot
         self.gui.graph_angle.canvas.axes.clear()
         self.gui.graph_angle.canvas.axes.plot(self.ts, self.x0 * (180 / np.pi))
         self.gui.graph_angle.canvas.draw()
-
-    def plot_velocity(self):
+        # Velocity plot
         self.gui.graph_velocity.canvas.axes.clear()
         self.gui.graph_velocity.canvas.axes.plot(self.ts, self.x1)
         self.gui.graph_velocity.canvas.draw()
