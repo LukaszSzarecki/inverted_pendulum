@@ -3,7 +3,7 @@ import numpy as np
 
 # timeline declaration
 h = 0.001
-tmax = 50
+tmax = 30
 
 # details of the input signal
 freq_sin = 2  # [Hz - ilosc okresow w dziedzinie czasu]
