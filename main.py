@@ -1,7 +1,7 @@
 # TODO dodaj animacje poruszającego się wahadła
 # TODO branch optymalizacja kodu
 # TODO branch animacja wahdadła
-# TODO porgram odporny na bledne dane
+
 
 from PyQt5 import QtWidgets
 import sys

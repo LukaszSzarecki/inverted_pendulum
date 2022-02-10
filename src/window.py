@@ -11,10 +11,10 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
         self.gui.setupUi(self)
 
         # User inputs
-        self.length = 1
-        self.mass = 1
+        self.length = 0
+        self.mass = 0
         self.friction = 0
-        self.initial_angle = 1
+        self.initial_angle = 0
         self.which_input_signal = ''
 
         # Plot clicked --button
@@ -27,11 +27,25 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
         self.gui.zero_choice.toggled.connect(self.zero_selected)
 
     def take_user_inputs(self):
-        self.length = float(self.gui.length_value.text())
-        self.mass = float(self.gui.mass_value.text())
-        self.friction = float(self.gui.friction_value.text())
-        self.initial_angle = float(self.gui.angle_value.text())
-        self.x_0 = [np.radians(self.initial_angle), 0]
+        if (self.gui.length_value.text() == ''):
+            self.length = 1
+        else:
+            self.length = float(self.gui.length_value.text())
+
+        if (self.gui.mass_value.text() == ''):
+            self.mass = 1
+        else:
+            self.mass = float(self.gui.mass_value.text())
+
+        if (self.gui.friction_value.text() == ''):
+            self.friction = 0
+        else:
+            self.friction = float(self.gui.friction_value.text())
+
+        if (self.gui.angle_value.text() == ''):
+            self.initial_angle = 1
+        else:
+            self.initial_angle = float(self.gui.angle_value.text())
 
     def sin_selected(self, selected):
         if selected:
@@ -49,6 +63,12 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
         if selected:
             self.which_input_signal = 'zero'
 
+    # def checked_inputs(self):
+    #     if (self.friction == 0): self.friction = 0
+    #     if (self.length == 0): self.length = 1
+    #     if (self.mass == 0): self.mass = 1
+    #     if (self.initial_angle == 0): self.initial_angle = 1
+
     def prepare_data(self):
         self.take_user_inputs()
         self.parameters = {
@@ -57,6 +77,7 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
             'length': self.length,
             'mass': self.mass
         }
+        self.x_0 = [np.radians(self.initial_angle), 0]
         data = calculate_state_variables(self.x_0, self.which_input_signal, self.parameters)
         self.split_data(**data)
 
