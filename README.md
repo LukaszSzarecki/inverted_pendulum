@@ -49,6 +49,20 @@ Project is created with:
 
 ## Code Examples
 Running file named main.py
+1. Example
+ * frition = 1
+ * initial angle = 0.0001 [°]
+ * length = 3 [m]
+ * mass = 1 [kg]
+
+![image](https://user-images.githubusercontent.com/61761700/153589822-e045a89a-3d3b-48e9-bd8a-b48a2cc272c0.png)
+
+
+2. Example
+
+3. Example
+
+4. Example
 	
 ## Setup
 To run this project, install it locally using npm:
