@@ -54,7 +54,7 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
             self.friction = 0
             flag = True
 
-        if self.gui.angle_value.text().isnumeric():
+        if isfloat(self.gui.angle_value.text()):
             self.initial_angle = float(self.gui.angle_value.text())
         else:
             self.initial_angle = 1
