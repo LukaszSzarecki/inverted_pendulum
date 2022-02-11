@@ -1,5 +1,12 @@
 # Inverted pendulum
-Simple inverted pendulum simulation using Python
+An exercise in visualization of the equations of motion. The ultimate goal is to simulate an inverted pendulum using a nonlinear system of equations. Additionally, the object can be stimulated by three signals (sine, triangle and square). 
+System Parameters:
+ -initial angle (Φ)
+ -pendulum mass (m)
+ -pendulum length (L)
+ -coefficient of friction (b)
+ -input signal (Ƭ)
+![inverted-pendulum-scheme](https://user-images.githubusercontent.com/61761700/153585942-91f47c08-8c66-4e9a-832b-45f1067d18e5.png)
 
 ## Table of contents
 * [General info](#general-info)
