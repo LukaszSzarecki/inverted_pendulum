@@ -49,14 +49,17 @@ Project is created with:
 
 ## Code Examples
 Running file named main.py
+_length and mass must by int values _
+_Angle and friction could be float values_
 1. Example
  * frition = 1
- * initial angle = 0.0001 [°]
+ * initial angle = 0.001 [°]
  * length = 3 [m]
  * mass = 1 [kg]
 
-![image](https://user-images.githubusercontent.com/61761700/153589822-e045a89a-3d3b-48e9-bd8a-b48a2cc272c0.png)
+![image](https://user-images.githubusercontent.com/61761700/153590433-32ab21b1-1e1c-4846-82ca-286302704aff.png)
 
+For these data we can observe that the pendulum from the vertical position (at the top) rotated (down) by 180° and due to the high value of friction it completely decelerated and remained in this position.
 
 2. Example
 
