@@ -49,8 +49,10 @@ Project is created with:
 
 ## Code Examples
 Running file named main.py
-_length and mass must by int values _
-_Angle and friction could be float values_
+
+length and mass must by int values 
+Angle and friction could be float values
+
 1. Example
  * frition = 1
  * initial angle = 0.001 [°]
