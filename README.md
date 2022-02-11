@@ -42,11 +42,13 @@ An exercise in visualization of the equations of motion. The ultimate goal is to
 
 ## Technologies
 Project is created with:
-* Lorem version: 12.3
-* Ipsum version: 2.33
-* Ament library version: 999
+* Python 3.9
+* PyQt5
+* Numpy 1.21.4
+* Matplotlib 3.5.0
 
 ## Code Examples
+Running file named main.py
 	
 ## Setup
 To run this project, install it locally using npm:
