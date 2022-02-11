@@ -36,6 +36,9 @@ An exercise in visualization of the equations of motion. The ultimate goal is to
 
 ![image](https://user-images.githubusercontent.com/61761700/153587513-6a49f4bb-4a7d-4e24-824e-197ee91483c0.png)
 
+**A non-linear differential equation - solved with Fourth Order RK-Method**
+
+![image](https://user-images.githubusercontent.com/61761700/153588203-50439f39-ffa2-4a54-8002-8cfa0fb13017.png)
 
 ## Technologies
 Project is created with:
