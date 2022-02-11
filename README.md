@@ -65,7 +65,7 @@ _Angle and friction could be float values_
 
 For these data we can observe that the pendulum from the vertical position (at the top) rotated (down) by 180° and due to the high value of friction it completely decelerated and remained in this position.
 
-2. Example
+**2. Example**
  * frition = 1
  * initial angle = 0.001 [°]
  * length = 3 [m]
@@ -76,7 +76,7 @@ For these data we can observe that the pendulum from the vertical position (at t
 
 The pendulum has rotated 180° and oscillates about this value according to the triangular excitation slowly decaying.
 
-3. Example
+**3. Example**
  * frition = 0
  * initial angle = 1 [°]
  * length = 1 [m]
@@ -87,7 +87,7 @@ The pendulum has rotated 180° and oscillates about this value according to the 
 
 We see a non-decaying oscillation, the pendulum is moving on an angle interval (0, 360). Obviously, does not cross the vertical. These are harmonic vibrations.
 
-4. Example
+**4. Example**
  * frition = 0.1
  * initial angle = 0.1 [°]
  * length = 1 [m]
