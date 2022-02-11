@@ -33,6 +33,7 @@ An exercise in visualization of the equations of motion. The ultimate goal is to
 **Model:**
 - ω angular velocity
 - φ angular displacement
+
 ![image](https://user-images.githubusercontent.com/61761700/153587513-6a49f4bb-4a7d-4e24-824e-197ee91483c0.png)
 
 
