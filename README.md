@@ -59,16 +59,46 @@ _Angle and friction could be float values_
  * initial angle = 0.001 [°]
  * length = 3 [m]
  * mass = 1 [kg]
+ * input signal = zero
 
 ![image](https://user-images.githubusercontent.com/61761700/153590433-32ab21b1-1e1c-4846-82ca-286302704aff.png)
 
 For these data we can observe that the pendulum from the vertical position (at the top) rotated (down) by 180° and due to the high value of friction it completely decelerated and remained in this position.
 
 2. Example
+ * frition = 1
+ * initial angle = 0.001 [°]
+ * length = 3 [m]
+ * mass = 1 [kg]
+ * input signal = triangular
+ 
+![image](https://user-images.githubusercontent.com/61761700/153591244-33c300fd-33e0-4cb9-95e6-cbd77c8a9f74.png)
+
+The pendulum has rotated 180° and oscillates about this value according to the triangular excitation slowly decaying.
 
 3. Example
+ * frition = 0
+ * initial angle = 1 [°]
+ * length = 1 [m]
+ * mass = 1 [kg]
+ * input signal = zero
+
+![image](https://user-images.githubusercontent.com/61761700/153591531-afb72627-3e6c-4c66-8884-ca2d290af857.png)
+
+We see a non-decaying oscillation, the pendulum is moving on an angle interval (0, 360). Obviously, does not cross the vertical. These are harmonic vibrations.
 
 4. Example
-	
-## Setup
-To run this project, install it locally using npm:
+ * frition = 0.1
+ * initial angle = 0.1 [°]
+ * length = 1 [m]
+ * mass = 1 [kg]
+ * input signal = rectangular
+ 
+![image](https://user-images.githubusercontent.com/61761700/153591862-a37e133c-3e44-409b-8ee9-ba49fbad9c1f.png)
+
+This is the first time that the pendulum has swung in the opposite direction from the previous examples. This was due to the rectungular input signal, which caused the pendulum to 
+moved opposite to the action of gravity at first. 
+
+
+## Setup (in-built)
+To run this project...
